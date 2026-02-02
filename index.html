@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checking in on Oteniara ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* A soothing, warm lavender/pink gradient for comfort */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background-color: #fff0f5; 
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 500px;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        h1 {
+            color: #4a4a4a;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 15px 0;
+            width: 100%;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+            color: white;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Different colors for buttons */
+        .btn-tired { background-color: #ff8a80; } /* Soft Red */
+        .btn-okay { background-color: #9fa8da; }  /* Soft Blue */
+        
+        .hidden {
+            display: none;
+        }
+
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            animation: float 4s ease-in infinite;
+            opacity: 0;
+            font-size: 1.5rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container" id="checkInScreen">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/bXkHqWnF1iAAAAAi/tired-work.gif" alt="Tired Bear">
+        </div>
+        
+        <h1>Hey Oteniara... ❤️</h1>
+        <p>I know you've been working hard. How are you feeling right now?</p>
+        
+        <div class="btn-container">
+            <button class="btn btn-tired" onclick="sendComfort('tired')">I'm so tired / exhausted 😩</button>
+            <button class="btn btn-okay" onclick="sendComfort('okay')">A bit stressed 🤕</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="comfortScreen">
+        <div class="gif-container">
+            <img src="https://media.tenor.com/7j1WvF8r9jAAAAAi/milk-and-mocha-hug.gif" alt="Hug">
+        </div>
+        
+        <h1 style="color: #e91e63;">I've got you.</h1>
+        <p id="comfortMessage">Sending you the biggest hug in the world. You are doing amazing and I am so proud of you.</p>
+        <p style="font-size: 0.9rem; color: #888;">(Keep this screen open to recharge)</p>
+        
+        <button class="btn" style="background-color: #e91e63;" onclick="createHeartExplosion()">Click for more Kisses 💋</button>
+    </div>
+
+    <script>
+        function sendComfort(mood) {
+            // Hide the question, show the comfort
+            document.getElementById('checkInScreen').style.display = 'none';
+            document.getElementById('comfortScreen').style.display = 'block';
+            document.getElementById('comfortScreen').classList.remove('hidden');
+
+            // Optional: Change message based on how tired she is
+            const messageBox = document.getElementById('comfortMessage');
+            if(mood === 'tired') {
+                messageBox.innerHTML = "Put your phone down, close your eyes for a second.<br>You worked so hard today.<br>I love you so much.";
+            } else {
+                messageBox.innerHTML = "Take a deep breath.<br>I am sending you all my energy.<br>I love you, Oteniara.";
+            }
+
+            // Trigger hearts immediately
+            createHeartExplosion();
+            setInterval(createFloatingHeart, 300); // Keep sending gentle hearts
+        }
+
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random speed
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        function createHeartExplosion() {
+            for(let i=0; i<15; i++) {
+                setTimeout(createFloatingHeart, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
