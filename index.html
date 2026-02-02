@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Checking in on Oteniara ❤️</title>
+    <title>For My Love ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -12,154 +13,192 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* A soothing, warm lavender/pink gradient for comfort */
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            background-color: #fff0f5; 
-            font-family: 'Arial', sans-serif;
+            /* A warm, loving gradient background */
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+            font-family: 'Nunito', sans-serif;
             overflow: hidden;
-            text-align: center;
         }
 
-        .container {
-            width: 90%;
-            max-width: 500px;
-            padding: 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+        /* The glass card effect */
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px 20px;
+            width: 85%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s ease;
         }
 
         h1 {
-            color: #4a4a4a;
-            font-size: 1.8rem;
-            margin-bottom: 10px;
+            font-family: 'Great Vibes', cursive;
+            color: #d32f2f;
+            font-size: 3rem;
+            margin: 0;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         p {
-            color: #666;
+            color: #555;
             font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
+            margin: 15px 0 25px 0;
+            line-height: 1.6;
         }
 
-        .gif-container img {
+        .img-box img {
             width: 100%;
-            max-width: 250px;
-            border-radius: 15px;
-            margin-bottom: 20px;
+            max-width: 220px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
         }
 
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
+        /* Beautiful gradient buttons */
         .btn {
-            padding: 15px 0;
+            display: block;
             width: 100%;
-            font-size: 1.1rem;
+            padding: 15px;
+            margin: 10px 0;
             border: none;
             border-radius: 50px;
-            cursor: pointer;
+            font-size: 1.1rem;
             font-weight: bold;
-            transition: transform 0.2s;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
             color: white;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:active {
-            transform: scale(0.98);
+            transform: scale(0.96);
         }
 
-        /* Different colors for buttons */
-        .btn-tired { background-color: #ff8a80; } /* Soft Red */
-        .btn-okay { background-color: #9fa8da; }  /* Soft Blue */
-        
+        .btn-primary {
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            box-shadow: 0 5px 15px rgba(221, 36, 118, 0.4);
+        }
+
+        .btn-soft {
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.4);
+        }
+
         .hidden {
             display: none;
         }
 
-        /* Floating Hearts Animation */
+        /* Floating Hearts */
         .heart {
             position: absolute;
             color: #ff4081;
-            animation: float 4s ease-in infinite;
+            font-size: 24px;
+            pointer-events: none; /* Let clicks pass through */
+            animation: floatUp 4s linear forwards;
             opacity: 0;
-            font-size: 1.5rem;
         }
 
-        @keyframes float {
+        @keyframes floatUp {
             0% { transform: translateY(0) scale(0.5); opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Fade in animation for screens */
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="container" id="checkInScreen">
-        <div class="gif-container">
+    <div class="card" id="screen1">
+        <div class="img-box">
             <img src="https://media.tenor.com/bXkHqWnF1iAAAAAi/tired-work.gif" alt="Tired Bear">
         </div>
+        <h1>My Dearest Oteniara</h1>
+        <p>I know you work so hard, my love.<br>How are you feeling right now?</p>
         
-        <h1>Hey Oteniara... ❤️</h1>
-        <p>I know you've been working hard. How are you feeling right now?</p>
-        
-        <div class="btn-container">
-            <button class="btn btn-tired" onclick="sendComfort('tired')">I'm so tired / exhausted 😩</button>
-            <button class="btn btn-okay" onclick="sendComfort('okay')">A bit stressed 🤕</button>
-        </div>
+        <button class="btn btn-primary" onclick="showLove('tired')">I'm exhausted 😣</button>
+        <button class="btn btn-soft" onclick="showLove('miss')">Just missed you ❤️</button>
     </div>
 
-    <div class="container hidden" id="comfortScreen">
-        <div class="gif-container">
+    <div class="card hidden fade-in" id="screen2">
+        <div class="img-box">
             <img src="https://media.tenor.com/7j1WvF8r9jAAAAAi/milk-and-mocha-hug.gif" alt="Hug">
         </div>
+        <h1>I've Got You</h1>
         
-        <h1 style="color: #e91e63;">I've got you.</h1>
-        <p id="comfortMessage">Sending you the biggest hug in the world. You are doing amazing and I am so proud of you.</p>
-        <p style="font-size: 0.9rem; color: #888;">(Keep this screen open to recharge)</p>
+        <p id="dynamicMessage">Take a deep breath. You are safe now. I am so proud of everything you do.</p>
         
-        <button class="btn" style="background-color: #e91e63;" onclick="createHeartExplosion()">Click for more Kisses 💋</button>
+        <button class="btn btn-primary" onclick="nextMessage()">
+            Need more love? Tap here 💖
+        </button>
     </div>
 
     <script>
-        function sendComfort(mood) {
-            // Hide the question, show the comfort
-            document.getElementById('checkInScreen').style.display = 'none';
-            document.getElementById('comfortScreen').style.display = 'block';
-            document.getElementById('comfortScreen').classList.remove('hidden');
+        // A list of sweet messages to cycle through
+        const messages = [
+            "You are the strongest person I know.",
+            "I wish I could hold you right now.",
+            "Relax your shoulders, my love. Breathe.",
+            "You mean the world to me.",
+            "I'm going to take care of you.",
+            "Just close your eyes for a moment."
+        ];
+        
+        let messageIndex = 0;
 
-            // Optional: Change message based on how tired she is
-            const messageBox = document.getElementById('comfortMessage');
-            if(mood === 'tired') {
-                messageBox.innerHTML = "Put your phone down, close your eyes for a second.<br>You worked so hard today.<br>I love you so much.";
-            } else {
-                messageBox.innerHTML = "Take a deep breath.<br>I am sending you all my energy.<br>I love you, Oteniara.";
-            }
-
-            // Trigger hearts immediately
-            createHeartExplosion();
-            setInterval(createFloatingHeart, 300); // Keep sending gentle hearts
+        function showLove(mood) {
+            document.getElementById('screen1').style.display = 'none';
+            document.getElementById('screen2').classList.remove('hidden');
+            document.getElementById('screen2').style.display = 'block';
+            
+            createHearts(20); // Big explosion of hearts
         }
 
-        function createFloatingHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's'; // Random speed
-            document.body.appendChild(heart);
-
+        function nextMessage() {
+            const msgElement = document.getElementById('dynamicMessage');
+            
+            // Fade out text slightly
+            msgElement.style.opacity = 0;
+            
             setTimeout(() => {
-                heart.remove();
-            }, 5000);
+                msgElement.innerText = messages[messageIndex];
+                msgElement.style.opacity = 1;
+                messageIndex = (messageIndex + 1) % messages.length;
+            }, 200);
+
+            createHearts(5); // Small burst of hearts
         }
 
-        function createHeartExplosion() {
-            for(let i=0; i<15; i++) {
-                setTimeout(createFloatingHeart, i * 100);
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    // Random size variation
+                    const size = Math.random() * 20 + 10; 
+                    heart.style.fontSize = size + 'px';
+                    
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 100);
             }
         }
     </script>
