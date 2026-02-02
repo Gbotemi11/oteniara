@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For My Love ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
     <style>
         body {
             margin: 0;
@@ -13,103 +15,104 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* A warm, loving gradient background */
-            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            /* Soft pink/lavender overlay */
+            background-color: #ffeef2;
+            font-family: 'Playfair Display', serif; /* Elegant text font */
             overflow: hidden;
         }
 
-        /* The glass card effect */
         .card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 30px;
-            padding: 30px 20px;
+            border-radius: 25px;
+            padding: 40px 25px;
             width: 85%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid white;
             transition: all 0.5s ease;
         }
 
         h1 {
-            font-family: 'Great Vibes', cursive;
-            color: #d32f2f;
-            font-size: 3rem;
-            margin: 0;
+            font-family: 'Dancing Script', cursive; /* Handwritten font */
+            color: #d81b60;
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
             line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         }
 
         p {
             color: #555;
-            font-size: 1.1rem;
-            margin: 15px 0 25px 0;
-            line-height: 1.6;
+            font-size: 1.2rem;
+            margin: 10px 0 30px 0;
+            font-style: italic; /* Makes the text look more like a letter */
         }
 
-        /* General styling for GIF images */
         .img-box img {
             width: 100%;
             max-width: 220px;
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        /* NEW: Specific styling just for HER photo to make it a beautiful circle */
+        /* PHOTO STYLING */
         .personal-photo {
-            width: 150px !important; /* Fixed size */
-            height: 150px !important;
-            object-fit: cover; /* Ensures the photo doesn't stretch */
-            border-radius: 50% !important; /* Makes it a perfect circle */
-            border: 4px solid white; /* Adds a nice border */
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2) !important;
+            width: 160px !important;
+            height: 160px !important;
+            object-fit: cover;
+            border-radius: 50% !important;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
         }
 
-        /* Beautiful gradient buttons */
         .btn {
             display: block;
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 16px;
+            margin: 12px 0;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
+            font-family: 'Playfair Display', serif; /* Matches body text */
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             color: white;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 0.5px;
         }
 
         .btn:active {
-            transform: scale(0.96);
+            transform: scale(0.97);
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, #ff512f, #dd2476);
-            box-shadow: 0 5px 15px rgba(221, 36, 118, 0.4);
+        /* Elegant button colors */
+        .btn-tired {
+            background: linear-gradient(135deg, #ff80ab, #ff4081);
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
         }
 
-        .btn-soft {
-            background: linear-gradient(to right, #8e2de2, #4a00e0);
-            box-shadow: 0 5px 15px rgba(74, 0, 224, 0.4);
+        .btn-hug {
+            background: linear-gradient(135deg, #b39ddb, #7e57c2);
+            box-shadow: 0 4px 15px rgba(126, 87, 194, 0.3);
+        }
+        
+        .btn-more {
+            background: linear-gradient(135deg, #ff5252, #d32f2f);
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            margin-top: 20px;
         }
 
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
 
-        /* Floating Hearts */
         .heart {
             position: absolute;
-            color: #ff4081;
+            color: #e91e63;
             font-size: 24px;
-            pointer-events: none; /* Let clicks pass through */
-            animation: floatUp 4s linear forwards;
+            pointer-events: none;
+            animation: floatUp 4s ease-in forwards;
             opacity: 0;
         }
 
@@ -118,15 +121,8 @@
             100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
         }
 
-        /* Fade in animation for screens */
-        .fade-in {
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 1.2s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
     </style>
 </head>
@@ -136,11 +132,11 @@
         <div class="img-box">
             <img src="mylove.jpg" alt="My beautiful Oteniara" class="personal-photo">
         </div>
-        <h1>My Dearest Oteniara</h1>
-        <p>I know you work so hard, my love.<br>How are you feeling right now?</p>
+        <h1>Hey Oteniara...</h1>
+        <p>I know today was heavy.<br>How are you feeling right now?</p>
         
-        <button class="btn btn-primary" onclick="showLove('tired')">I'm exhausted 😣</button>
-        <button class="btn btn-soft" onclick="showLove('miss')">Just missed you ❤️</button>
+        <button class="btn btn-tired" onclick="showLove()">I'm completely drained 😩</button>
+        <button class="btn btn-hug" onclick="showLove()">I just need a hug 🫂</button>
     </div>
 
     <div class="card hidden fade-in" id="screen2">
@@ -149,48 +145,44 @@
         </div>
         <h1>I've Got You</h1>
         
-        <p id="dynamicMessage">Take a deep breath. You are safe now. I am so proud of everything you do.</p>
+        <p id="dynamicMessage">Take a deep breath, my love. You don't have to do anything else today.</p>
         
-        <button class="btn btn-primary" onclick="nextMessage()">
-            Need more love? Tap here 💖
+        <button class="btn btn-more" onclick="nextMessage()">
+            Tap for more love ❤️
         </button>
     </div>
 
     <script>
-        // A list of sweet messages to cycle through
         const messages = [
-            "You are the strongest person I know.",
-            "I wish I could hold you right now.",
-            "Relax your shoulders, my love. Breathe.",
-            "You mean the world to me.",
-            "I'm going to take care of you.",
-            "Just close your eyes for a moment.",
+            "You are safe now. Just relax.",
+            "I am so incredibly proud of you.",
+            "Close your eyes and count to three.",
+            "You are enough, just as you are.",
+            "I'm sending you the biggest hug ever.",
+            "Leave the work stress here. It's gone.",
             "I love you more than words can say."
         ];
         
         let messageIndex = 0;
 
-        function showLove(mood) {
+        function showLove() {
             document.getElementById('screen1').style.display = 'none';
             document.getElementById('screen2').classList.remove('hidden');
             document.getElementById('screen2').style.display = 'block';
-            
-            createHearts(20); // Big explosion of hearts
+            createHearts(25);
         }
 
         function nextMessage() {
             const msgElement = document.getElementById('dynamicMessage');
-            
-            // Fade out text slightly
             msgElement.style.opacity = 0;
             
             setTimeout(() => {
                 msgElement.innerText = messages[messageIndex];
                 msgElement.style.opacity = 1;
                 messageIndex = (messageIndex + 1) % messages.length;
-            }, 200);
+            }, 300);
 
-            createHearts(5); // Small burst of hearts
+            createHearts(8);
         }
 
         function createHearts(count) {
@@ -201,16 +193,11 @@
                     heart.innerHTML = '❤️';
                     heart.style.left = Math.random() * 100 + 'vw';
                     heart.style.top = '100vh';
-                    // Random size variation
-                    const size = Math.random() * 20 + 10; 
+                    const size = Math.random() * 25 + 10; 
                     heart.style.fontSize = size + 'px';
-                    
                     document.body.appendChild(heart);
-
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 4000);
-                }, i * 100);
+                    setTimeout(() => heart.remove(), 4000);
+                }, i * 150);
             }
         }
     </script>
